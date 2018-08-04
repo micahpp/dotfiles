@@ -16,7 +16,6 @@ filetype plugin indent on	" required for vundle
 set number
 set clipboard=unnamed
 set laststatus=2		" set status line to always visible  (for lightline)
-set showmatch			" 'show' matching bracket/braces in open/close pair
 set tabstop=4			" visual spaces per TAB
 set softtabstop=4		" n spaces in TAB when editing (including backspace)
 set expandtab			" tabs are spaces
@@ -25,3 +24,6 @@ set cursorline			" highlight current line
 colorscheme gruvbox
 syntax on
 
+" highlight training whitespaces
+highlight ExtraWhitespace ctermbg=red guibg=red
+match ExtraWhitespace /\s\+$/

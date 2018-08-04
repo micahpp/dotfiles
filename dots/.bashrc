@@ -10,14 +10,22 @@ clipfp () {
         realpath $1 | tr -d '\n' | pbcopy
 }
 
+copyfp() {
+        realpath $1 | tr -d '\n' | pbcopy
+}
+
+cleanup() {
+    find $HOME -name '.DS_Store' -print -delete
+}
+
 export EDITOR=vim
 export CODEPATH=$HOME/code
 export PATH=$PATH:$BASH_SCRIPT_PATH
 export GOPATH=$HOME/code/go
 export PATH=$PATH:$GOPATH/bin
+export HISTCONTROL=ignoreboth:erasedupes    # ignore dupe lines in bash history
 
-
-# git stuff
+# git stuff
 source ~/code/dotfiles/git-completion.bash	# enable git tab completion
 source ~/code/dotfiles/git-prompt.sh	# use custom git prompt
 export GIT_PS1_SHOWDIRTYSTATE=1
@@ -28,13 +36,27 @@ export LSCOLORS=ExFxBxDxCxegedabagacad
 
 # aliases
 alias rebash="source ~/.bash_profile"
+alias rb="rebash"
+
+# navigation
 alias ..="cd .."
 alias ...="cd ../.."
+alias ....="cd ../../.."
+alias dots="cd  $CODEPATH/dotfiles"
+alias ranger='ranger --choosedir=$TMPDIR/.rangerdir; LASTDIR=`cat $TMPDIR/.rangerdir`; cd "$LASTDIR"'   # exit ranger at crrent dir
+
+# ls
 alias ls="ls -lGh"
-alias lsa="ls -a"           # include hidden files
+alias lsa="ls -A"           # include hidden files except self & parent
+
+
+# monitoring
+alias hogscpu="ps -acrx -o pid,%cpu,command | awk 'NR<=5'"
+alias hogsmem="ps -acrx -o pid,%mem,command | awk 'NR<=5'"
+alias hogs="hogscpu; echo; hogsmem"
+
+# misc
 alias du="du -sh"
-alias abspath="realpath"
 alias fp="realpath"			# asb path of filepath arg
-alias tidyup="find . -name '.DS_Store' -print -delete"
-# exit ranger at current dir
-alias ranger='ranger --choosedir=$HOME/.rangerdir; LASTDIR=`cat $HOME/.rangerdir`; cd "$LASTDIR"'
+alias about="neofetch"
+alias speedtest="speedtest-cli --simple"
