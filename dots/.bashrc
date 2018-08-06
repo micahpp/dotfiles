@@ -1,4 +1,5 @@
 
+
 # color definitions
 green="\[\033[0;32m\]"
 blue="\[\033[0;34m\]"
@@ -60,3 +61,8 @@ alias du="du -sh"
 alias fp="realpath"			# asb path of filepath arg
 alias about="neofetch"
 alias speedtest="speedtest-cli --simple"
+
+export WORK_CONF=$HOME/.work/work_profile
+if [ -f $WORK_CONF ]; then
+        source $WORK_CONF
+fi
