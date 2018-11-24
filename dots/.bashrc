@@ -1,15 +1,12 @@
 
+export DOTFILES=$HOME/code/dotfiles
+source $DOTFILES/dots/.exports
 
 # color definitions
 green="\[\033[0;32m\]"
 blue="\[\033[0;34m\]"
 purple="\[\033[0;35m\]"
 reset="\[\033[0m\]"
-
-# copy abs path of $1 to clipboard
-clipfp () {
-        realpath $1 | tr -d '\n' | pbcopy
-}
 
 copyfp() {
         realpath $1 | tr -d '\n' | pbcopy
@@ -30,7 +27,7 @@ export HISTCONTROL=ignoreboth:erasedupes    # ignore dupe lines in bash history
 source ~/code/dotfiles/git-completion.bash	# enable git tab completion
 source ~/code/dotfiles/git-prompt.sh	# use custom git prompt
 export GIT_PS1_SHOWDIRTYSTATE=1
-export PS1="$purple\u$green\$(__git_ps1)$blue \W $ $reset"
+export PS1="$purple\u$green\$(__git_ps1)$blue \W 🌵  $reset"
 export CLICOLOR=1
 export LSCOLORS=ExFxBxDxCxegedabagacad
 
@@ -43,13 +40,12 @@ alias rb="rebash"
 alias ..="cd .."
 alias ...="cd ../.."
 alias ....="cd ../../.."
-alias dots="cd  $CODEPATH/dotfiles"
+alias dots="cd  $DOTFILES"
 alias ranger='ranger --choosedir=$TMPDIR/.rangerdir; LASTDIR=`cat $TMPDIR/.rangerdir`; cd "$LASTDIR"'   # exit ranger at crrent dir
 
 # ls
 alias ls="ls -lGh"
 alias lsa="ls -A"           # include hidden files except self & parent
-
 
 # monitoring
 alias hogscpu="ps -acrx -o pid,%cpu,command | awk 'NR<=5'"
@@ -62,7 +58,7 @@ alias fp="realpath"			# asb path of filepath arg
 alias about="neofetch"
 alias speedtest="speedtest-cli --simple"
 
-export WORK_CONF=$HOME/.work/work_profile
-if [ -f $WORK_CONF ]; then
-        source $WORK_CONF
+# use work profile if it exists
+if [ -f $WORK_PROFILE ]; then
+        source $WORK_PROFILE
 fi

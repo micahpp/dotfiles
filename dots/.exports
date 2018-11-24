@@ -1,3 +1,4 @@
 
 export CODEPATH="$HOME/code"
-export DOTFILES_PATH="$CODEPATH/dotfiles"
+export DOTFILES="$CODEPATH/dotfiles"
+export WORK_PROFILE=$HOME/.work/profile
