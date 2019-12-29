@@ -1,0 +1,27 @@
+# shortcuts
+
+alias reload="source ~/.zshrc"
+alias paths='echo -e ${PATH//:/\\n}'
+
+# navigation
+alias ..="cd .."
+alias ...="cd ../.."
+alias ....="cd ../../.."
+alias dots="cd  $DOTFILES"
+alias ranger='ranger --choosedir=$TMPDIR/.rangerdir; LASTDIR=`cat $TMPDIR/.rangerdir`; cd "$LASTDIR"'   # exit ranger at crrent dir
+
+# ls
+alias ls="ls -lGh"
+alias lsa="ls -A"           # include hidden files except self & parent
+
+# monitoring
+alias hogscpu="ps -acrx -o pid,%cpu,command | awk 'NR<=5'"
+alias hogsmem="ps -acrx -o pid,%mem,command | awk 'NR<=5'"
+alias hogs="hogscpu; echo; hogsmem"
+
+# misc
+alias du="du -sh"
+alias fp="realpath"			# asb path of filepath arg
+alias about="neofetch"
+alias speedtest="speedtest-cli --simple"
+
