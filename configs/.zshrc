@@ -1,6 +1,5 @@
 # If you come from bash you might have to change your $PATH.
 export PATH=$HOME/bin:/usr/local/bin:$PATH
-export PATH="/Users/micah/anaconda3/bin:$PATH"
 
 # Path to your oh-my-zsh installation.
 export ZSH="/Users/micah/.oh-my-zsh"
@@ -85,7 +84,7 @@ source $ZSH/oh-my-zsh.sh
 # export ARCHFLAGS="-arch x86_64"
 
 # ssh
-# export SSH_KEY_PATH="~/.ssh/rsa_id"
+export SSH_KEY_PATH="~/.ssh/rsa_id"
 
 # Set personal aliases, overriding those provided by oh-my-zsh libs,
 # plugins, and themes. Aliases can be placed here, though oh-my-zsh
@@ -93,5 +92,11 @@ source $ZSH/oh-my-zsh.sh
 # For a full list of active aliases, run `alias`.
 #
 # Example aliases
-# alias zshconfig="vi ~/.zshrc"
-# alias ohmyzsh="vi ~/.oh-my-zsh"
+alias zshconfig="vi ~/.zshrc"
+alias ohmyzsh="vi ~/.oh-my-zsh"
+
+# source dotfiles
+export DOTFILES_PATH="${HOME}/code/dotfiles/dots-v2"
+for DOTFILE in `find $DOTFILES_PATH`; do
+    [[ -f $DOTFILE ]] && source $DOTFILE
+done
