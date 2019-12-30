@@ -100,7 +100,7 @@ for DOTFILE in `find $DOTFILES_PATH`; do
     [[ -f $DOTFILE ]] && source $DOTFILE
 done
 
-# source work comfig if it exists
+# source work config if it exists
 if [ -f $WORK_PROFILE ]; then
         source $WORK_PROFILE
 fi
