@@ -95,7 +95,7 @@ alias zshconfig="vi ~/.zshrc"
 alias ohmyzsh="vi ~/.oh-my-zsh"
 
 # source dotfiles
-export DOTFILES_PATH="${HOME}/code/dotfiles/dots-v2"
+export DOTFILES_PATH="${HOME}/code/dotfiles/dots"
 for DOTFILE in `find $DOTFILES_PATH`; do
     [[ -f $DOTFILE ]] && source $DOTFILE
 done
