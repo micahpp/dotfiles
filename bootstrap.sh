@@ -3,7 +3,7 @@
 # export env vars
 source dots/.env
 
-echo "setting up macos system configs"
+echo "setting macos system configs"
 ./macos/defaults.sh
 
 echo "symlinking config files to home dir"
@@ -14,5 +14,6 @@ for DOTS_CONFIG in `find ${DOTFILES}/configs`; do
      fi
 done;
 
-echo "setting global git core.excludesfile configuration file to ~/.gitignore"
+echo "setting git global configs"
 git config --global core.excludesfile "~/.gitignore"
+git config --global pager.branch false
