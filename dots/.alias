@@ -9,6 +9,7 @@ alias ...="cd ../.."
 alias ....="cd ../../.."
 alias dots="cd  $DOTFILES"
 alias ranger='ranger --choosedir=$TMPDIR/.rangerdir; LASTDIR=`cat $TMPDIR/.rangerdir`; cd "$LASTDIR"'   # exit ranger at crrent dir
+alias tmp="cd /tmp"
 
 # ls
 alias ls="ls -lGh"
