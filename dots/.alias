@@ -9,6 +9,10 @@ alias tmp="cd /tmp"
 # ls
 alias ls="ls -lGh"
 alias lsa="ls -A"           # include hidden files except self & parent
+alias lsd="ls -d */"        # list only directories
 
 # misc
 alias du="du -sh"
+
+# dev
+alias playground='cd ~/code/playground && source venv/bin/activate'     # cd into playground dir & activate env var - run wild from here
